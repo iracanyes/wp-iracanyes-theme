@@ -11,30 +11,41 @@ get_header();
 
         <!-- slider -->
         <div id="slider">
+            <?php
+            $images = get_field("slider_accueil");
+            $size = "full";
+
+            if($images) :
+            ?>
             <!-- revolution slider begin -->
             <div class="fullwidthbanner-container">
                 <div id="revolution-slider">
                     <ul>
+                        <?php
+                        foreach($images as $image):
+                        ?>
                         <li data-transition="fade" data-slotamount="7" data-masterspeed="2500" data-delay="5000">
-                            <!--  BACKGROUND IMAGE -->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img-rev-slider/bg-1.jpg" alt="">
-
+                            <!--  BACKGROUND IMAGE
+                            <img src="<?php //echo get_stylesheet_directory_uri(); ?>/img-rev-slider/bg-1.jpg" alt="">
+                            -->
+                            <?php
+                            echo wp_get_attachment_image(
+                                    $image["ID"],
+                                    $size
+                            );
+                            ?>
                         </li>
 
-                        <li data-transition="fade" data-slotamount="7" data-masterspeed="2500" data-delay="5000">
-                            <!--  BACKGROUND IMAGE -->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img-rev-slider/bg-3.jpg" alt="">
-
-                        </li>
-
-                        <li data-transition="fade" data-slotamount="7" data-masterspeed="2500" data-delay="5000">
-                            <!--  BACKGROUND IMAGE -->
-                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/img-rev-slider/bg-2.jpg" alt="">
-                        </li>
+                        <?php
+                        endforeach;
+                         ?>
                     </ul>
                 </div>
             </div>
             <!-- revolution slider close -->
+            <?php
+            endif;
+            ?>
         </div>
         <!-- slider close -->
 
