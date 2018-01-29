@@ -25,7 +25,7 @@ function wp_base_theme_setup(){
 
 
 }
-// Event Listener : Image à laune
+// Event Listener : Image à la une
 add_action("after_setup_theme", "wp_base_theme_setup");
 
 /*
