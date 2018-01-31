@@ -122,7 +122,7 @@ get_header();
                                     );
 
                                     if($posts):
-                                        //print_r($posts);
+
                                     ?>
 
                                     <div id="latest-projects-items" class="latest-projects-items">
@@ -141,7 +141,7 @@ get_header();
                                                 <p class="folio-cate"><i class="fa fa-tag"></i>
                                                     <?php
                                                     echo get_the_category_list(", ", "",$post['ID']);
-                                                     ?>
+                                                    ?>
                                                 </p>
                                                 <div class="folio-buttons">
                                                     <a href="<?php echo get_permalink($post['ID']); ?>" title="<?php echo $post['post_title']; ?>" class="folio"><i class="fa fa-search"></i></a>
@@ -169,22 +169,45 @@ get_header();
                 <!-- Container Begin -->
                 <div class="container">
                     <?php
-                    if(have_rows("section3_exam"))
+                    wp_reset_postdata();
+                    if($rows = get_field("accueil_3box")):
+
                     ?>
-                    <div class="row">
-                        <div class="col-md-4">
+                        <div class="row">
+                        <?php
+
+                        foreach($rows as $row):
+
+
+                        ?>
+                            <div class="col-md-4">
                             <div class="service-box service-style2">
-                                <img src="images/services/thumbs-1.png" alt="" class="img-responsive">
+                                <!--
+                                <img src="<?php //echo get_stylesheet_directory_uri(); ?>/images/services/thumbs-1.png" alt="" class="img-responsive">
+                                -->
+
+                                <i class="fa <?php echo $row["accueil_3box_icon"]; ?>"></i>
+
                                 <div class="service-content">
-                                    <h3><?php _e("Mobile Ready", "wp-theme-base-translate"); ?></h3>
+                                    <h3>
+                                        <?php echo $row['accueil_3box_titre']; ?>
+                                    </h3>
                                     <p>
-<?php _e("L'ennui dans ce monde, c'est que les idiots sont sûrs d'eux et les gens sensés pleins de doutes.", "wp-theme-base-translate"); ?>
-</p>
+                                    <?php
+                                    echo $row["accueil_3box_texte"];
+                                    ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
+                        <?php
+                        endforeach;
+                        ?>
                     </div>
+                    <?php
+                    endif;
+
+                    ?>
                 </div>
                 <!-- Container End -->
             </section>
