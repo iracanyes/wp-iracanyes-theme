@@ -17,14 +17,11 @@
                     <div class="compact-widget">
                         <div class="widget-inner">
 
-                            <h3 class="widget-title">
-                                <?php __("Résumé", "wp-theme-base-translate"); ?>
-                            </h3>
-                            <p>
+
                                 <?php
                                 dynamic_sidebar("text-bloc-footer");
                                 ?>
-                            </p>
+
 
 
                             <div class="social-icons clearfix">
@@ -40,7 +37,7 @@
 
                 <div class="col-md-3">
                     <div class="compact-widget">
-                        <h3 class="widget-title"><?php __('Catégories', 'wp-theme-base-translate'); ?></h3>
+                        <h3 class="widget-title"><?php _e('Catégories', 'wp-theme-base-translate'); ?></h3>
                         <div class="widget-inner">
                             <!--
                             <ul>
@@ -70,13 +67,13 @@
 
                     <div class="compact-widget">
                         <h3 class="widget-title">
-                            <?php __('Contact Us', 'wp-theme-base-translate'); ?>
+                            <?php _e('Contact Us', 'wp-theme-base-translate'); ?>
                         </h3>
                         <div class="widget-inner">
-                            <p>Address: 379 5th Ave  New York, NYC <br> 10018, United States</p>
-                            <p>Phone: +(112) 345 6879</p>
-                            <p>Fax: +(112) 345 8796</p>
-                            <p>Email: contact@compact.com</p>
+                            <p><?php _e('Address: 379 5th Ave  New York, NYC <br> 10018, United States', 'wp-theme-base-translate'); ?></p>
+                            <p><?php _e('Phone: +(112) 345 6879', 'wp-theme-base-translate'); ?></p>
+                            <p><?php _e('Fax: +(112) 345 8796', 'wp-theme-base-translate'); ?></p>
+                            <p><?php _e('Email: contact@compact.com', 'wp-theme-base-translate'); ?></p>
                         </div>
                     </div>
 
@@ -85,13 +82,13 @@
 
                 <div class="col-md-3">
                     <div class="compact-widget">
-                        <h3 class="widget-title">Newsletter</h3>
+                        <h3 class="widget-title"><?php _e('Newsletter','wp-theme-base-translate'); ?></h3>
                         <div class="widget-inner">
                             <div class="newsletter newsletter-widget">
-                                <p>Stay informed about our news and events</p>
+                                <p><?php _e('Stay informed about our news and events','wp-theme-base-translate'); ?></p>
                                 <form action="" method="post">
-                                    <p><input class="newsletter-email" type="email" name="email" placeholder="Your email"><i class="fa fa-envelope-o"></i></p>
-                                    <p><input class="newsletter-submit" type="submit" value="Subscribe"></p>
+                                    <p><input class="newsletter-email" type="email" name="email" placeholder="<?php _e('Your email','wp-theme-base-translate'); ?>"><i class="fa fa-envelope-o"></i></p>
+                                    <p><input class="newsletter-submit" type="submit" value="<?php _e('Subscribe','wp-theme-base-translate'); ?>"></p>
                                 </form>
                             </div>
                         </div>
@@ -108,7 +105,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    Copyright &copy; 2016 Designed by AuThemes. All rights reserved.
+                    <?php _e('Copyright &copy; 2018 Created by Iracanyes. All rights reserved.','wp-theme-base-translate');
+                    ?>
                 </div>
             </div>
         </div>
@@ -137,6 +135,8 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/masonry.js"></script>
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.isotope.min.js"></script>
 
+
+
 <!-- Waypoints-->
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/jquery.waypoints.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/sticky.min.js"></script>
@@ -151,7 +151,10 @@
 <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/revslider-custom.js"></script>
 
+<!-- Script personnalisé : Vidéo -->
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri().'/js/custom.js'; ?>"></script>
 
+<!-- Page Actualité -->
 <script type="text/javascript">
     /* Portfolio Sorting */
     jQuery(document).ready(function($){
