@@ -59,17 +59,27 @@ get_header();
         </div>
     </section>
     <!-- section close -->
-
+    <?php
+    if($localisation = get_field("localisation")):
+    ?>
     <!-- section gmap begin -->
     <section id="section-gmap" class="no-padding">
-        <div id="map-canvas" class="map-canvas"></div>
-    </section>
-    <!-- section gmap close -->
 
+        <div id="map-canvas" class="map-canvas" data-latitude="<?php echo $localisation["google_maps"]["lat"];?>" data-longitude="<?php echo $localisation["google_maps"]["lng"]; ?>" data-address="<?php echo $localisation['adresse']; ?>" data-icon="<?php echo get_stylesheet_directory_uri().'/images/cd-icon-location.png'; ?>"></div>
+    </section>
+
+    <!-- section gmap close -->
+    <?php
+    endif;
+    ?>
 </div>
 
 <!-- content close -->
+<!-- Page Contact -->
 
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEgdMODEkYBGIiSkO1i9JJYvAdGfQz6uE"></script>
+
+<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/contact.js"></script>
        
 <?php
 // Ajout du footer de la page

@@ -17,6 +17,9 @@ function wp_base_theme_setup(){
     //Support pour les sidebars
     add_theme_support("sidebars");
 
+    // Support pour les images de fond
+    add_theme_support("custom-background");
+
     // Support pour la traduction
     load_theme_textdomain(
         "wp-theme-base-translate",
@@ -84,9 +87,32 @@ if(!function_exists("wp_iracanyes_theme_enqueue_style")){
         // Ajout du support JQuery
         // Fct pour ajouter les scripts pré-installé dans Wordpress
         wp_register_script("jquery");
+
     }
 
     add_action("wp_enqueue_scripts", "wp_iracanyes_theme_enqueue_scripts");
 }
 
 
+/**
+ * Filter the excerpt length to 30 characters.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wp_example_excerpt_length() {
+    return 12;
+}
+add_filter( 'excerpt_length', 'wp_example_excerpt_length');
+
+
+/**
+ * Ajout clé Google Map API
+ */
+
+function mon_acf_init(){
+    acf_update_setting("google_api_key", "AIzaSyCEgdMODEkYBGIiSkO1i9JJYvAdGfQz6uE") ;
+
+}
+
+add_action("acf/init", "mon_acf_init");
