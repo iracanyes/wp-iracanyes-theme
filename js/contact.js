@@ -2,13 +2,18 @@
     
     //set your google maps parameters
 
-    $(document).ready(function(){
-        var latitude = -37.817,
-            longitude = 144.962,
-            map_zoom = 14;
+    $(function(){
+        //Intégration des paramètres pour la Google Maps
+        var lat = parseFloat($("#map-canvas").attr("data-latitude")),
+            lng = parseFloat($("#map-canvas").attr("data-longitude")),
+            mon_adresse = $("#map-canvas").attr("data-address"),
+            mon_icon = $("#map-canvas").attr("data-icon");
+        var latitude = lat ? lat : 50.6433834,
+            longitude = lng ? lng : 5.5588613,
+            map_zoom = 15;
 
         var locations = [
-            ['<div class="infobox"><span>WE ARE COMPACT<span></div>', latitude, longitude, 2]
+            ['<div class="infobox"><span>'+ mon_adresse ? mon_adresse : "Institut Saint Laurent" +'<span></div>', latitude, longitude, 2]
         ];
     
         var map = new google.maps.Map(document.getElementById('map-canvas'), {
@@ -207,7 +212,7 @@
             marker = new google.maps.Marker({ 
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]), 
                 map: map,
-                icon: 'images/cd-icon-location.png'
+                icon: mon_icon
             });
         
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
